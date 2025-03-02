@@ -1,0 +1,89 @@
+﻿<Window
+    x:Class="MesProject.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:MesProject.Controls"
+    xmlns:converter="clr-namespace:MesProject.ValueConverters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:MesProject"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:MesProject.ViewModels"
+    Title="生产监控平台"
+    Width="1200"
+    Height="900"
+    d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" />
+    </WindowChrome.WindowChrome>
+
+    <Grid>
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop
+                    Offset="0"
+                    Color="#386b66" />
+                <GradientStop
+                    Offset="0.5"
+                    Color="#3a5055" />
+                <GradientStop
+                    Offset="1"
+                    Color="#001d2f" />
+            </RadialGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border
+            Grid.Row="0"
+            BorderBrush="#9918aabd"
+            BorderThickness="0,0,0,1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Image
+                    Grid.Column="0"
+                    Margin="5"
+                    Source="/Resource/Images/Logo.png" />
+
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="5,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    Foreground="White"
+                    Text="生 产 监 控 平 台" />
+
+                <StackPanel
+                    Grid.Column="2"
+                    Margin="0,0,0,15"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                    <Button
+                        Click="MinimizeButton_Click"
+                        Content="&#xe624;"
+                        Style="{StaticResource WindowControlButtonStyle}" />
+                    <Button
+                        Click="MaximizeButton_Click"
+                        Content="&#xe600;"
+                        Style="{StaticResource WindowControlButtonStyle}" />
+                    <Button
+                        Click="CloseButton_Click"
+                        Content="&#xe609;"
+                        Style="{StaticResource WindowCloseButtonStyle}" />
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
+        <ContentControl Grid.Row="1" Content="{Binding CurrentControl, Converter={converter:ControlConverter}}" />
+    </Grid>
+</Window>

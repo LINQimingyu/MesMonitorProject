@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resource\Fonts\DigitalDisplay.ttf" />
+    <None Remove="Resource\Fonts\iconfont.ttf" />
+    <None Remove="Resource\Images\device.png" />
+    <None Remove="Resource\Images\Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc4.5" />
+    <PackageReference Include="NModbus" Version="3.0.81" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Fonts\DigitalDisplay.ttf" />
+    <Resource Include="Resource\Fonts\Iconfont.ttf" />
+    <Resource Include="Resource\Images\device.png" />
+    <Resource Include="Resource\Images\Logo.png" />
+  </ItemGroup>
+
+</Project>
